@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
@@ -25,11 +26,13 @@ public class Movement : MonoBehaviour
     private Stats stats;
     private Rigidbody2D rb;
     private Vector3 desired;
+    private Inputs input;
 
     private Direction currentDirection;
 
     private void Start()
     {
+        input = GetComponent<Inputs>();
         dToSprite = new Dictionary<Direction, Sprite>
         {
             {Direction.LEFT, left },
@@ -47,20 +50,22 @@ public class Movement : MonoBehaviour
         {
             return;
         }
-        playerSprite.sprite = dToSprite[dir];
+        //playerSprite.sprite = dToSprite[dir];
         currentDirection = dir;
     }
 
     private void Update()
     {
-        float horizontal = moveX ? Input.GetAxisRaw("Horizontal") : 0;
-        float vertical = moveY ? Input.GetAxisRaw("Vertical") : 0;
+        float hor = input.GetAxis("Horizontal");
+        float ver = input.GetAxis("Vertical");
 
-        if (horizontal == 0)
+        desired = new Vector3(hor, 0, ver);
+
+        if (desired.x == 0)
         {
             SetOrientation(Direction.STILL);
         }
-        else if (horizontal > 0)
+        else if (desired.y > 0)
         {
             SetOrientation(Direction.RIGHT);
         }
@@ -68,8 +73,6 @@ public class Movement : MonoBehaviour
         {
             SetOrientation(Direction.LEFT);
         }
-
-        desired = new Vector3(horizontal, vertical, 0).normalized;
     }
 
     private void FixedUpdate()
