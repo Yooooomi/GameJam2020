@@ -35,6 +35,7 @@ public class spike : MonoBehaviour
         {
             stats.moveSpeed *= 1 / pikeSlowRatio;
         }
+        collision.transform.rotation = Quaternion.Euler(Vector3.zero);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
