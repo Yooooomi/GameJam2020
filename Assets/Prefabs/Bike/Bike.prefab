@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8258829176995697185}
   - component: {fileID: 8258829176995697184}
+  - component: {fileID: 8255976922402732806}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -70,7 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cab939bcc4693764ca61cf0d78de64ef, type: 3}
+  m_Sprite: {fileID: -3381139452580699930, guid: bf78d70b320b3d54993acd9f2a49e82e,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,6 +83,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8255976922402732806
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258829176995697214}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc40d3483cb2f664fb23ad288a722fde, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8258829178626335893
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,10 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveX: 1
   moveY: 1
-  left: {fileID: 21300000, guid: cab939bcc4693764ca61cf0d78de64ef, type: 3}
-  middle: {fileID: 21300000, guid: cab939bcc4693764ca61cf0d78de64ef, type: 3}
-  right: {fileID: 21300000, guid: cab939bcc4693764ca61cf0d78de64ef, type: 3}
-  playerSprite: {fileID: 8258829176995697184}
+  input: {fileID: 0}
+  animator: {fileID: 8255976922402732806}
 --- !u!114 &8258829178626335897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  ignoreDamage: 0
   life: 100
 --- !u!50 &8258829178626335896
 Rigidbody2D:

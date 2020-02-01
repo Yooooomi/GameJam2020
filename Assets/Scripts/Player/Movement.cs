@@ -14,29 +14,17 @@ public class Movement : MonoBehaviour
     public bool moveX;
     public bool moveY;
 
-    public Sprite left;
-    public Sprite middle;
-    public Sprite right;
-
-    private Dictionary<Direction, Sprite> dToSprite;
-
-    public SpriteRenderer playerSprite;
-
     private Stats stats;
     private Rigidbody2D rb;
     private Vector2 desired;
     public Inputs input;
 
+    public Animator animator;
+
     private Direction currentDirection;
 
     private void Start()
     {
-        dToSprite = new Dictionary<Direction, Sprite>
-        {
-            {Direction.LEFT, left },
-            {Direction.STILL, middle },
-            {Direction.RIGHT, right },
-        };
 
         stats = GetComponent<Stats>();
         rb = GetComponent<Rigidbody2D>();
@@ -53,7 +41,8 @@ public class Movement : MonoBehaviour
         {
             return;
         }
-        //playerSprite.sprite = dToSprite[dir];
+        animator.SetBool("left", dir == Direction.LEFT);
+        animator.SetBool("right", dir == Direction.RIGHT);
         currentDirection = dir;
     }
 
@@ -78,7 +67,7 @@ public class Movement : MonoBehaviour
         {
             SetOrientation(Direction.STILL);
         }
-        else if (desired.y > 0)
+        else if (desired.x > 0)
         {
             SetOrientation(Direction.RIGHT);
         }
