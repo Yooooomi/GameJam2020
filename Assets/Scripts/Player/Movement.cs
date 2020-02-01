@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
 
     private Stats stats;
     private Rigidbody2D rb;
-    private Vector3 desired;
+    private Vector2 desired;
     private Inputs input;
 
     private Direction currentDirection;
@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour
         float hor = input.GetAxis("Horizontal");
         float ver = input.GetAxis("Vertical");
 
-        desired = new Vector3(hor, 0, ver);
+        desired = new Vector2(hor, ver).normalized;
 
         if (desired.x == 0)
         {
@@ -77,6 +77,6 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position + desired * stats.moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + desired * stats.moveSpeed * Time.fixedDeltaTime);
     }
 }
