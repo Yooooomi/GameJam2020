@@ -20,7 +20,7 @@ public class Barel : MonoBehaviour
         transform.position -= new Vector3(0, gameStats.mapSpeed * Time.deltaTime);
     }
 
-    void explode()
+    public void explode()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, explosionRadius);
         foreach (Collider2D collider in hitColliders)
@@ -34,10 +34,6 @@ public class Barel : MonoBehaviour
         GameObject expObj = Instantiate(explosion);
         expObj.transform.position = transform.position;
         expObj.transform.localScale = new Vector3(explosionRadius, explosionRadius, explosionRadius);
-        Debug.DrawLine(transform.position, transform.position + new Vector3(-explosionRadius, 0));
-        Debug.DrawLine(transform.position, transform.position + new Vector3(0, -explosionRadius));
-        Debug.DrawLine(transform.position, transform.position + new Vector3(-explosionRadius, 0));
-        Debug.DrawLine(transform.position, transform.position + new Vector3(explosionRadius, 0));
         Destroy(gameObject);
     }
 
