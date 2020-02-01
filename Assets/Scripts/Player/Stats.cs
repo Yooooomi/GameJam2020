@@ -6,6 +6,7 @@ public class Stats : MonoBehaviour
 {
     public float moveSpeed;
     public bool ignoreDamage = false;
+    public bool ignoreCollision = false;
 // public float life { get; private set; }
     public float life = 100.0f;
     private float maxLife;

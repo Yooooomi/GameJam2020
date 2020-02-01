@@ -41,7 +41,7 @@ public class spike : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         Stats stats = collision.gameObject.GetComponent<Stats>();
-        if (stats != null)
+        if (stats != null && !stats.ignoreCollision)
         {
             stats.DoDamage(damagePerSec * Time.deltaTime);
             var collisionRotation = collision.gameObject.transform.rotation;

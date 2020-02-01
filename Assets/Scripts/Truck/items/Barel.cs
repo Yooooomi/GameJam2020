@@ -39,6 +39,8 @@ public class Barel : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Stats stats = collision.gameObject.GetComponent<Stats>();
+        if (stats != null && stats.ignoreCollision) return;
         explode();
     }
 }
