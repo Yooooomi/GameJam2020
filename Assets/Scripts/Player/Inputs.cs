@@ -28,7 +28,7 @@ public class Inputs : MonoBehaviour
     public ControllerType controllerType;
 
     // The index of the player in this controller mode
-    private int controllerIndex = 0;
+    public int controllerIndex = 0;
 
     private string getSuffix()
     {
