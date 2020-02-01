@@ -51,7 +51,11 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if (!input) return;
+        if (!input)
+        {
+            desired = Vector3.zero;
+            return;
+        }
         float hor = input.GetAxis("Horizontal");
         float ver = input.GetAxis("Vertical");
 

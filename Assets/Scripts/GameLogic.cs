@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
 {
@@ -10,21 +11,22 @@ public class GameLogic : MonoBehaviour
     public float phaseTime;
     public float qteTime;
     public float currentPhaseTime { get; private set; }
-    private bool playerOneOnBike = true;
+    public bool playerOneOnBike { get; private set; } = true;
     private float currentQteTime;
 
     private RoleManager[] players;
     private qte[] qtes;
 
     private bool isChangingPhase;
+    private bool initing = true;
 
     private void Start()
     {
-        players = GameObject.FindObjectsOfType<RoleManager>();
-        qtes = GameObject.FindObjectsOfType<qte>();
+        players = FindObjectsOfType<RoleManager>();
+        qtes = FindObjectsOfType<qte>();
     }
 
-    private void ChangePhase()
+    private void ChangePhase(bool qte = true)
     {
         currentPhaseTime = 0;
         isChangingPhase = true;
@@ -33,12 +35,37 @@ public class GameLogic : MonoBehaviour
         players[1].ClearVehicle();
 
         currentQteTime = 0;
-        for (int i = 0; i < 2; i++)
+        if (qte)
         {
-            qtes[i].StartQTE(players[i].GetComponent<Inputs>());
+            for (int i = 0; i < 2; i++)
+            {
+                qtes[i].StartQTE(players[i].GetComponent<Inputs>());
+            }
+        }
+        else
+        {
+            currentQteTime = qteTime + 1;
+        }
+        playerOneOnBike = !playerOneOnBike;
+    }
+
+    private void EndChangingPhase()
+    {
+        int healIndex = playerOneOnBike ? 0 : 1;
+        int cdIndex = playerOneOnBike ? 1 : 0;
+
+        if (!initing)
+        {
+            SpawnSplashText.Instance.Spawn("Bike repaired!", qtes[healIndex].transform.position);
+            SpawnSplashText.Instance.Spawn("Cooldowns reduced!", qtes[cdIndex].transform.position);
         }
 
-        playerOneOnBike = !playerOneOnBike;
+        float score = (float)qtes[healIndex].End();
+        GameObject.Find("Bike").GetComponent<Stats>().Heal(qteScoreToHealth.Evaluate(score));
+
+        score = (float)qtes[cdIndex].End();
+        players[cdIndex].GetComponent<PlayerStats>().AddCdReduction(qteScoreCooldownReduction.Evaluate(score));
+        isChangingPhase = false;
 
         if (playerOneOnBike)
         {
@@ -50,24 +77,13 @@ public class GameLogic : MonoBehaviour
             players[0].SetInTruck();
             players[1].SetOnBike();
         }
-    }
-
-    private void EndChangingPhase()
-    {
-        int healIndex = playerOneOnBike ? 0 : 1;
-        int cdIndex = playerOneOnBike ? 1 : 0;
-
-        float score = (float) qtes[healIndex].End();
-        GameObject.Find("Bike").GetComponent<Stats>().Heal(qteScoreToHealth.Evaluate(score));
-
-        score = (float)qtes[cdIndex].End();
-        players[cdIndex].GetComponent<PlayerStats>().AddCdReduction(qteScoreCooldownReduction.Evaluate(score));
+        initing = false;
     }
 
     public void StartGame()
     {
         currentPhaseTime = 0;
-        ChangePhase();
+        ChangePhase(false);
     }
 
     private void Update()

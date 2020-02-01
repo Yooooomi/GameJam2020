@@ -14,11 +14,12 @@ public class Truck : MonoBehaviour
         [HideInInspector] public Activable activable = null;
     }
 
-    public List<KeyCode> keys;
+    public List<string> keys;
     public List<TruckItem> items;
     public GameObject itemContainer;
 
     private BoxCollider2D truckCollider;
+    private Movement movement;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class Truck : MonoBehaviour
             Debug.LogWarning("Invalid configuration of truck class");
         }
 
+        movement = GetComponent<Movement>();
         truckCollider = GetComponent<BoxCollider2D>();    
     }
 
@@ -58,10 +60,12 @@ public class Truck : MonoBehaviour
             item.currentCooldown -= Time.deltaTime;
         }
 
+        if (movement.input == null) return;
+
         for (int i = 0; i < keys.Count; i++)
         {
-            var key = keys[i];
-            if (Input.GetKeyDown(key))
+            string key = keys[i];
+            if (movement.input.GetButton(key, Inputs.ButtonType.DOWN))
             {
                 var item = items[i];
                 if (item.activable != null)

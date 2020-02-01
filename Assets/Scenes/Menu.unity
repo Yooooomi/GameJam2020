@@ -205,6 +205,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1601041331}
     m_Modifications:
+    - target: {fileID: 1789644714, guid: b9d8fe2dfdd6a2047a223ab21cb5a664, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789644714, guid: b9d8fe2dfdd6a2047a223ab21cb5a664, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789644714, guid: b9d8fe2dfdd6a2047a223ab21cb5a664, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2713790875101160444, guid: b9d8fe2dfdd6a2047a223ab21cb5a664,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -991,6 +1003,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
         type: 3}
+      propertyPath: colors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
+        type: 3}
       propertyPath: onPlayerJoins.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
@@ -1013,6 +1030,51 @@ PrefabInstance:
         type: 3}
       propertyPath: onPlayerJoins.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
+        type: 3}
+      propertyPath: colors.Array.data[0].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
+        type: 3}
+      propertyPath: colors.Array.data[0].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
+        type: 3}
+      propertyPath: colors.Array.data[0].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
+        type: 3}
+      propertyPath: colors.Array.data[1].r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
+        type: 3}
+      propertyPath: colors.Array.data[1].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
+        type: 3}
+      propertyPath: colors.Array.data[1].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
+        type: 3}
+      propertyPath: colors.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
+        type: 3}
+      propertyPath: colors.Array.data[1].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
+        type: 3}
+      propertyPath: gameScene
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5711907342098490131, guid: 307b2959cacd8a343ba49769e7959fee,
         type: 3}
@@ -1141,6 +1203,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1601041331}
     m_Modifications:
+    - target: {fileID: 1789644714, guid: b9d8fe2dfdd6a2047a223ab21cb5a664, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789644714, guid: b9d8fe2dfdd6a2047a223ab21cb5a664, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789644714, guid: b9d8fe2dfdd6a2047a223ab21cb5a664, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2713790875101160444, guid: b9d8fe2dfdd6a2047a223ab21cb5a664,
         type: 3}
       propertyPath: m_LocalPosition.x

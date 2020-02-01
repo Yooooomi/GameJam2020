@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class RoleManager : MonoBehaviour
 {
+    public Vector3 arrowOffset;
+
     private Movement truck;
     private Movement bike;
     private Inputs input;
 
     private Movement currentVehicle;
+    private ArrowManager arrowManager;
 
     public void Research()
     {
@@ -29,6 +32,15 @@ public class RoleManager : MonoBehaviour
         transform.position = Vector3.zero;
         input = GetComponent<Inputs>();
         Research();
+        arrowManager = GetComponent<ArrowManager>();
+    }
+
+    private void Update()
+    {
+        if (currentVehicle)
+        {
+            arrowManager.arrowContainer.transform.position = currentVehicle.transform.position + arrowOffset;
+        }
     }
 
     public void ClearVehicle()

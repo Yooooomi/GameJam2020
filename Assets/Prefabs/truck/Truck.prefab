@@ -229,7 +229,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978e3d58b86c99141a5eb6cdbb8ff557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 77000000780000006300000076000000
+  keys:
+  - X
+  - A
+  - B
+  - Y
   items:
   - obj: {fileID: 6249405505413649411, guid: d38f703244c40054db047fe4d531fc0f, type: 3}
     cooldown: 0.5

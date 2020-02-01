@@ -26,6 +26,7 @@ public class ControllerListener : MonoBehaviour
 
     public ConnectionInfos[] keysToPress;
     private Dictionary<KeyCode, bool> keysPressed = new Dictionary<KeyCode, bool>();
+    private bool locked;
     public ConnectionInfos[] connectedPlayers { get; private set; } = new ConnectionInfos[4]
     {
         null,
@@ -85,8 +86,14 @@ public class ControllerListener : MonoBehaviour
         }
     }
 
+    public void LockState()
+    {
+        locked = true;
+    }
+
     private void Update()
     {
+        if (locked) return;
         foreach (var i in keysToPress)
         {
             bool keyDown = Input.GetKeyDown(i.accessKey);

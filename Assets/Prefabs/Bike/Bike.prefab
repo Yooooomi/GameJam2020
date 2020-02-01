@@ -595,6 +595,8 @@ GameObject:
   - component: {fileID: 8258829178626335897}
   - component: {fileID: 8258829178626335896}
   - component: {fileID: 8258829176997963507}
+  - component: {fileID: 5868018126974600443}
+  - component: {fileID: 1452916152}
   m_Layer: 0
   m_Name: Bike
   m_TagString: Untagged
@@ -675,6 +677,9 @@ MonoBehaviour:
   moveSpeed: 7
   ignoreDamage: 0
   life: 100
+  onDamages:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &8258829178626335896
 Rigidbody2D:
   serializedVersion: 4
@@ -709,3 +714,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 761322771}
+--- !u!114 &5868018126974600443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258829178626335893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ae7c37f282c88488fc70d62684298a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1452916152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258829178626335893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6701c4b249fe94ead88ec7817ed11d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  render: {fileID: 8258829176995697184}
+  invincibleTime: 1
+  blinkTime: 0.25

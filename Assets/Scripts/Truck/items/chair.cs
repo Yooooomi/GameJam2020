@@ -5,6 +5,7 @@ using UnityEngine;
 public class chair : MonoBehaviour
 {
     public float damage = 20.0f;
+    private bool hasDamaged; 
 
     private GlobalStats gameStats;
     private void Start()
@@ -20,10 +21,13 @@ public class chair : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (hasDamaged) return;
+
         Stats stats = collision.gameObject.GetComponent<Stats>();
         if (stats != null)
         {
             stats.DoDamage(damage);
+            hasDamaged = true;
 
             //Vector3 force = (transform.position - collision.gameObject.transform.position).normalized;
             //force *= -1;

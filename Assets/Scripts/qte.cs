@@ -25,6 +25,7 @@ public class qte : MonoBehaviour
             setImage(false, img);
         }
         next(true);
+        End();
     }
 
     private void setImage(bool active, GameObject obj)
