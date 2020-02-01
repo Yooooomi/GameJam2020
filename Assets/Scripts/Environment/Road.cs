@@ -5,7 +5,6 @@ using UnityEngine;
 public class Road : MonoBehaviour
 {
     public bool inverse;
-    public float speed;
     public GameObject roadPrefab;
     private List<GameObject> roads = new List<GameObject>();
     private float currentOffset;
@@ -13,9 +12,11 @@ public class Road : MonoBehaviour
     private float roadHeight;
     private int nbToSpawn;
     private int middle;
+    private GlobalStats stats;
 
     public void Start()
     {
+        stats = FindObjectOfType<GlobalStats>();
         nbToSpawn = 4; // TODO implement roadHeight
         middle = nbToSpawn - (nbToSpawn / 2);
 
@@ -38,7 +39,7 @@ public class Road : MonoBehaviour
     public void Update()
     {
         float sens = inverse ? -1 : 1;
-        currentOffset += speed * Time.deltaTime * sens;
+        currentOffset += stats.mapSpeed * Time.deltaTime * sens;
 
         if (Mathf.Abs(currentOffset) > roadHeight)
         {

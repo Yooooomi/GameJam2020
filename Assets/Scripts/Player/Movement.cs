@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
 
     private Stats stats;
     private Rigidbody2D rb;
-    private Vector3 desired;
+    private Vector2 desired;
 
     private Direction currentDirection;
 
@@ -69,11 +69,11 @@ public class Movement : MonoBehaviour
             SetOrientation(Direction.LEFT);
         }
 
-        desired = new Vector3(horizontal, vertical, 0).normalized;
+        desired = new Vector2(horizontal, vertical).normalized;
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position + desired * stats.moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + desired * stats.moveSpeed * Time.fixedDeltaTime);
     }
 }
