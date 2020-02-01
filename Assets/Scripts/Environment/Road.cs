@@ -5,6 +5,7 @@ using UnityEngine;
 public class Road : MonoBehaviour
 {
     public bool inverse;
+    public float zOffset;
     public GameObject roadPrefab;
     private List<GameObject> roads = new List<GameObject>();
     private float currentOffset;
@@ -48,7 +49,7 @@ public class Road : MonoBehaviour
 
         for (int i = 0; i < roads.Count; i++)
         {
-            roads[i].transform.position = Vector3.up * currentOffset + Vector3.up * (roadHeight * (i - middle));
+            roads[i].transform.position = Vector3.up * currentOffset + Vector3.up * (roadHeight * (i - middle)) + Vector3.forward * zOffset;
         }
     }
 }

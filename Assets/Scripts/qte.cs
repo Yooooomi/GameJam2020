@@ -7,15 +7,15 @@ using UnityEngine.Events;
 public class qte : MonoBehaviour
 {
     public List<GameObject> imgs;
-    public List<KeyCode> keys;
+
+    public List<string> keys;
 
     public float time = 5.0f;
     public int score = 0;
 
-    public delegate void EventHandler(int score);
-    public event EventHandler OnQteEnd;
-
-    private KeyCode toPress;
+    private bool isRunning;
+    private string toPress;
+    private Inputs currentInput;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class qte : MonoBehaviour
         sprite.color = color;
     }
 
-    private void onKeyPressed(KeyCode key, GameObject pressed, bool valid)
+    private void onKeyPressed(string key, GameObject pressed, bool valid)
     {
         score += valid ? 1 : -1;
         pressed.GetComponent<Animator>().SetTrigger("grossi");
@@ -51,18 +51,37 @@ public class qte : MonoBehaviour
         setImage(true, imgs[keys.IndexOf(toPress)]);
     }
 
-    // Update is called once per frame
+    public void StartQTE(Inputs input)
+    {
+        isRunning = true;
+        currentInput = input;
+        score = 0;
+        foreach(var i in imgs)
+        {
+            i.SetActive(true);
+        }
+    }
+
+    public int End()
+    {
+        isRunning = false;
+        foreach (var i in imgs)
+        {
+            i.SetActive(false);
+        }
+
+        int tmpScore = score;
+        score = 0;
+        return tmpScore;
+    }
+
     void Update()
     {
-        time -= Time.deltaTime;
-        if (time < 0)
+        if (!isRunning) return;
+
+        foreach (string key in keys)
         {
-            OnQteEnd(score);
-            Destroy(gameObject);
-        }
-        foreach (KeyCode key in keys)
-        {
-            if (Input.GetKeyDown(key))
+            if (currentInput.GetButton(key, Inputs.ButtonType.DOWN))
             {
                 onKeyPressed(key, imgs[keys.IndexOf(key)], key == toPress);
                 next();

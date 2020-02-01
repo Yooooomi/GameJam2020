@@ -41,8 +41,11 @@ public class Movement : MonoBehaviour
         {
             return;
         }
-        animator.SetBool("left", dir == Direction.LEFT);
-        animator.SetBool("right", dir == Direction.RIGHT);
+        if (animator != null)
+        {
+            animator.SetBool("left", dir == Direction.LEFT);
+            animator.SetBool("right", dir == Direction.RIGHT);
+        }
         currentDirection = dir;
     }
 

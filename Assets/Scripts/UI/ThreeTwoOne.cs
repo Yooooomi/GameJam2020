@@ -8,6 +8,13 @@ public class ThreeTwoOne : MonoBehaviour
     public Text text;
     private int current = 3;
 
+    private GameLogic logic;
+
+    private void Start()
+    {
+        logic = FindObjectOfType<GameLogic>();
+    }
+
     public void SetNext()
     {
         current -= 1;
@@ -17,7 +24,8 @@ public class ThreeTwoOne : MonoBehaviour
         }
         else if (current == -1)
         {
-            Destroy(gameObject);
+            logic.StartGame();
+            Destroy(text);
         }
         else
         {

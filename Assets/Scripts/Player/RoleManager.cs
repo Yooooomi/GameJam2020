@@ -8,6 +8,8 @@ public class RoleManager : MonoBehaviour
     private Movement bike;
     private Inputs input;
 
+    private Movement currentVehicle;
+
     public void Research()
     {
         GameObject truckObject = GameObject.Find("Truck");
@@ -29,19 +31,28 @@ public class RoleManager : MonoBehaviour
         Research();
     }
 
+    public void ClearVehicle()
+    {
+        if (currentVehicle != null)
+        {
+            currentVehicle.SetInput(null);
+            currentVehicle.transform.SetParent(null);
+        }
+    }
+
     public void SetInTruck()
     {
+        currentVehicle = truck;
         truck.SetInput(input);
         transform.position = truck.transform.position;
         truck.transform.SetParent(transform);
-        bike.transform.SetParent(null);
     }
 
     public void SetOnBike()
     {
+        currentVehicle = bike;
         bike.SetInput(input);
         transform.position = bike.transform.position;
         bike.transform.SetParent(transform);
-        truck.transform.SetParent(null);
     }
 }
