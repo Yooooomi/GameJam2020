@@ -10,8 +10,16 @@ public class RoleManager : MonoBehaviour
 
     public void Research()
     {
-        truck = GameObject.Find("Truck").GetComponent<Movement>();
-        bike = GameObject.Find("Bike").GetComponent<Movement>();
+        GameObject truckObject = GameObject.Find("Truck");
+        GameObject bikeObject = GameObject.Find("Bike");
+
+        if (truckObject == null || bikeObject == null)
+        {
+            Debug.LogError("Truck or Bike is null");
+        }
+
+        truck = truckObject.GetComponent<Movement>();
+        bike = bikeObject.GetComponent<Movement>();
     }
 
     private void Start()
