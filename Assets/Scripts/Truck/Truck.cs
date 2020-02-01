@@ -9,6 +9,7 @@ public class Truck : MonoBehaviour
     {
         public GameObject obj;
         public float cooldown = 0.5f;
+        public Animator animationOnTruck = null;
         [HideInInspector] public float currentCooldown = 0;
         [HideInInspector] public Activable activable = null;
     }
@@ -41,6 +42,10 @@ public class Truck : MonoBehaviour
             {
                 item.activable = null;
             });
+        }
+        if (item.animationOnTruck != null)
+        {
+            item.animationOnTruck.SetTrigger("open");
         }
         item.currentCooldown = item.cooldown;
     }
