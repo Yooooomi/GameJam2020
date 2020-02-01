@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  ignoreDamage: 1
   life: 100
 --- !u!114 &4616153828953076669
 MonoBehaviour:
@@ -115,6 +116,7 @@ MonoBehaviour:
   middle: {fileID: 21300000, guid: cab939bcc4693764ca61cf0d78de64ef, type: 3}
   right: {fileID: 21300000, guid: cab939bcc4693764ca61cf0d78de64ef, type: 3}
   playerSprite: {fileID: 4616153829879773510}
+  input: {fileID: 0}
 --- !u!114 &4616153828953076664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,13 +129,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978e3d58b86c99141a5eb6cdbb8ff557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 7700000078000000
+  keys: 770000007800000063000000
   items:
   - obj: {fileID: 6249405505413649411, guid: d38f703244c40054db047fe4d531fc0f, type: 3}
     cooldown: 0.5
     currentCooldown: 0
   - obj: {fileID: 8400666321311469191, guid: 8002e3cae15c355448d03b9766bd86a5, type: 3}
-    cooldown: 0.5
+    cooldown: 0.25
+    currentCooldown: 0
+  - obj: {fileID: 102684307134982122, guid: 03a4a61157e0c5244b31f952ccf4308f, type: 3}
+    cooldown: 1
     currentCooldown: 0
   itemContainer: {fileID: 1664897001084750713, guid: d94aa39eb1334b242a806ca6cb969b67,
     type: 3}

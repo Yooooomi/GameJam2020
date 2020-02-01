@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     private Stats stats;
     private Rigidbody2D rb;
     private Vector2 desired;
-    private Inputs input;
+    public Inputs input;
 
     private Direction currentDirection;
 

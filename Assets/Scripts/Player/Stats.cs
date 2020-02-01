@@ -5,11 +5,13 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
     public float moveSpeed;
+    public bool ignoreDamage = false;
 // public float life { get; private set; }
     public float life = 100.0f;
 
     public void DoDamage(float damage)
     {
+        if (ignoreDamage) return;
         life -= damage;
     }
 }
