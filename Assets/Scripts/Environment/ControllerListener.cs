@@ -42,6 +42,21 @@ public class ControllerListener : MonoBehaviour
         }
     }
 
+    public int GetIndexInConnectedFromRank(int rank)
+    {
+        int current = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (connectedPlayers[i] != null)
+            {
+                if (current == rank) return i;
+                current += 1;
+            }
+        }
+        return -1;
+    }
+
     private void AddPlayer(ConnectionInfos infos)
     {
         for (int i = 0; i < connectedPlayers.Length; i++)

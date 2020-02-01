@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5711907342098490131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5711907342098490129}
+  - component: {fileID: 5711907342098490128}
+  - component: {fileID: 5711907342098490130}
+  - component: {fileID: 1885218330}
+  m_Layer: 0
+  m_Name: GlobalManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5711907342098490129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711907342098490131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 50.885963, y: -11.854343, z: -49.10707}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5711907342098490128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711907342098490131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad41841ce6ec9b4192a54a2b0dfaf81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keysToPress:
+  - accessKey: 13
+    controllerType: 1
+    controllerIndex: 0
+  - accessKey: 350
+    controllerType: 2
+    controllerIndex: 0
+  - accessKey: 370
+    controllerType: 2
+    controllerIndex: 1
+  - accessKey: 390
+    controllerType: 2
+    controllerIndex: 2
+  - accessKey: 410
+    controllerType: 2
+    controllerIndex: 3
+--- !u!114 &5711907342098490130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711907342098490131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6040523af7d82c5418ea192e2fa57243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1645581493698226761, guid: cddf48825e0952647877bcc8d5f022e0, type: 3}
+  thingsToRemoveAtStart:
+  - {fileID: 0}
+  thingsToEnableAtStart:
+  - {fileID: 0}
+--- !u!114 &1885218330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711907342098490131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b347b8cf29b3f4f819327cddd89888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
