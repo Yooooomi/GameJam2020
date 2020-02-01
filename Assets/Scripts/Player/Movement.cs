@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     private Vector2 desired;
     public Inputs input;
 
-    public Animator animator;
+    public Animator animator = null;
 
     private Direction currentDirection;
 
