@@ -11,10 +11,11 @@ public class Mortar : MonoBehaviour
     public void explode()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(gameObject.transform.position, explosionRadius);
+
         foreach (Collider2D collider in hitColliders)
         {
             Stats stats = collider.GetComponent<Stats>();
-            if (stats != null)
+            if (stats != null && !stats.ignoreCollision)
             {
                 stats.DoDamage(damage);
             }

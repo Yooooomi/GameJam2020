@@ -7,13 +7,12 @@ public class spike : MonoBehaviour
     public float pikeSlowRatio = 0.5f;
     public float damagePerSec = 20.0f;
     private GlobalStats stats;
-    // Start is called before the first frame update
+
     void Start()
     {
         stats = FindObjectOfType<GlobalStats>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position -= new Vector3(0, stats.mapSpeed) * Time.deltaTime;
@@ -41,9 +40,9 @@ public class spike : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         Stats stats = collision.gameObject.GetComponent<Stats>();
-        if (stats != null)
+        if (stats != null && !stats.ignoreCollision)
         {
-            stats.DoDamage(damagePerSec * Time.deltaTime);
+            stats.DoDamage(damagePerSec * Time.deltaTime, true);
             var collisionRotation = collision.gameObject.transform.rotation;
             collision.gameObject.transform.rotation = Quaternion.Euler(collisionRotation.x, collisionRotation.y, collisionRotation.z + Random.Range(-90.0f, 90.0f) * Time.deltaTime * 2);
         }

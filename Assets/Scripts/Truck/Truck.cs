@@ -35,7 +35,8 @@ public class Truck : MonoBehaviour
     void activeItem(TruckItem item)
     {
         GameObject container = Instantiate(itemContainer);
-        container.transform.position = transform.position - new Vector3(0, truckCollider.size.y / 2) - new Vector3(0, item.obj.GetComponent<BoxCollider2D>().size.y / 2) - new Vector3(0, 0.1f);
+        container.transform.position = transform.position - new Vector3(0, item.obj.GetComponent<BoxCollider2D>().size.y / 2);
+        container.transform.position = new Vector3(container.transform.position.x, container.transform.position.y, -1);
         GameObject spawnedObject = Instantiate(item.obj, container.transform);
         item.activable = spawnedObject.GetComponent<Activable>();
         if (item.activable != null)

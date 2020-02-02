@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Joiner : MonoBehaviour
 {
+    public AudioClip newPlayerSound;
+    public AudioClip removePlayerSound;
     public List<Color> colors;
 
     public int gameScene;
@@ -52,13 +54,16 @@ public class Joiner : MonoBehaviour
 
     private void InitGame(Scene s, LoadSceneMode m)
     {
+        GameLogic logic = FindObjectOfType<GameLogic>();
+
         if (s.buildIndex != gameScene) return;
         for (int i = 0; i < 2; i++)
         {
             GameObject newPlayer = Instantiate(prefab);
             int index = assigner.GetIndexInConnectedFromRank(i);
             newPlayer.GetComponent<Inputs>().Connect(assigner.connectedPlayers[index].controllerType, assigner.connectedPlayers[index].controllerIndex);
-            newPlayer.GetComponent<ArrowManager>().SetColor(colors[i]);
+            newPlayer.GetComponent<ArrowManager>().SetIdentity("", colors[i]);  
+            newPlayer.GetComponent<StatsUI>().SetUpSideUI(logic.sideUIs[i]);
             indexToPlayer[i] = newPlayer;
             players.Add(newPlayer);
         }
@@ -70,11 +75,13 @@ public class Joiner : MonoBehaviour
         if (connecting)
         {
             nbPlayers += 1;
+            AudioSource.PlayClipAtPoint(newPlayerSound, Vector3.zero);
             onPlayerJoins.Invoke(connecting, index, infos.controllerType);
         }
         else
         {
             nbPlayers -= 1;
+            AudioSource.PlayClipAtPoint(removePlayerSound, Vector3.zero, 2.0f);
             onPlayerJoins.Invoke(connecting, index, infos.controllerType);
         }
     }

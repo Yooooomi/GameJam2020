@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
 {
+    public List<SideUI> sideUIs;
+    public float slowMoMultiplier;
     public AnimationCurve qteScoreToHealth;
     public AnimationCurve qteScoreCooldownReduction;
 
@@ -37,6 +39,7 @@ public class GameLogic : MonoBehaviour
         currentQteTime = 0;
         if (qte)
         {
+            SlowMoManager.Instance.SetSlowMo(slowMoMultiplier);
             for (int i = 0; i < 2; i++)
             {
                 qtes[i].StartQTE(players[i].GetComponent<Inputs>());
@@ -54,18 +57,26 @@ public class GameLogic : MonoBehaviour
         int healIndex = playerOneOnBike ? 0 : 1;
         int cdIndex = playerOneOnBike ? 1 : 0;
 
+        int healScore = qtes[healIndex].End();
+        GameObject.Find("Bike").GetComponent<Stats>().Heal(qteScoreToHealth.Evaluate((float) healScore));
+
+        int cdScore = qtes[cdIndex].End();
+
+        PlayerStats stats = players[healIndex].GetComponent<PlayerStats>();
+        stats.SetTotalQTE(healScore);
+
+        stats = players[cdIndex].GetComponent<PlayerStats>();
+        stats.AddCdReduction(qteScoreCooldownReduction.Evaluate((float) cdScore));
+        stats.SetTotalQTE(cdScore);
+        
+        isChangingPhase = false;
+
         if (!initing)
         {
-            SpawnSplashText.Instance.Spawn("Bike repaired!", qtes[healIndex].transform.position);
-            SpawnSplashText.Instance.Spawn("Cooldowns reduced!", qtes[cdIndex].transform.position);
+            SlowMoManager.Instance.SetSlowMo(1);
+            SpawnSplashText.Instance.Spawn("Bike repaired! " + healScore + " hits!", qtes[healIndex].transform.position);
+            SpawnSplashText.Instance.Spawn("Cooldowns reduced! " + cdScore + " hits!", qtes[cdIndex].transform.position);
         }
-
-        float score = (float)qtes[healIndex].End();
-        GameObject.Find("Bike").GetComponent<Stats>().Heal(qteScoreToHealth.Evaluate(score));
-
-        score = (float)qtes[cdIndex].End();
-        players[cdIndex].GetComponent<PlayerStats>().AddCdReduction(qteScoreCooldownReduction.Evaluate(score));
-        isChangingPhase = false;
 
         if (playerOneOnBike)
         {
@@ -90,7 +101,7 @@ public class GameLogic : MonoBehaviour
     {
         if (isChangingPhase)
         {
-            currentQteTime += Time.deltaTime;
+            currentQteTime += Time.unscaledDeltaTime;
             if (currentQteTime > qteTime)
             {
                 EndChangingPhase();

@@ -26,8 +26,15 @@ public class chair : MonoBehaviour
         Stats stats = collision.gameObject.GetComponent<Stats>();
         if (stats != null)
         {
-            stats.DoDamage(damage);
-            hasDamaged = true;
+            if (stats.ignoreCollision)
+            {
+                Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+            }
+            else
+            {
+                stats.DoDamage(damage);
+                hasDamaged = true;
+            }
 
             //Vector3 force = (transform.position - collision.gameObject.transform.position).normalized;
             //force *= -1;

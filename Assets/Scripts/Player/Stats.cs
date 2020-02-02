@@ -7,20 +7,23 @@ public class Stats : MonoBehaviour
 {
     public float moveSpeed;
     public bool ignoreDamage = false;
+    public bool ignoreCollision = false;
     public float life = 100.0f;
     private float maxLife;
 
-    public UnityEvent onDamages = new UnityEvent();
+    public class OnDamages : UnityEvent<float, bool> { }
+
+    public OnDamages onDamages = new OnDamages();
 
     private void Start()
     {
         maxLife = life;
     }
 
-    public void DoDamage(float damage)
+    public void DoDamage(float damage, bool doNotTriggerInvincibility = false)
     {
         if (ignoreDamage) return;
-        onDamages.Invoke();
+        onDamages.Invoke(damage, doNotTriggerInvincibility);
         life -= damage;
     }
 

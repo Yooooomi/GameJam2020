@@ -132,7 +132,7 @@ Transform:
   m_GameObject: {fileID: 4616153828953076642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4616153829879773505}
   - {fileID: 3036596271794832206}
@@ -152,7 +152,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.057702363}
+  m_Offset: {x: 0, y: 0.35390204}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -163,7 +163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.8845953}
+  m_Size: {x: 1, y: 0.061386466}
   m_EdgeRadius: 0
 --- !u!50 &4616153828953076671
 Rigidbody2D:
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   ignoreDamage: 1
+  ignoreCollision: 1
   life: 100
 --- !u!114 &4616153828953076669
 MonoBehaviour:
@@ -236,22 +237,22 @@ MonoBehaviour:
   - Y
   items:
   - obj: {fileID: 6249405505413649411, guid: d38f703244c40054db047fe4d531fc0f, type: 3}
-    cooldown: 0.5
+    cooldown: 1
     animationOnTruck: {fileID: 0}
     currentCooldown: 0
     activable: {fileID: 0}
   - obj: {fileID: 8400666321311469191, guid: 8002e3cae15c355448d03b9766bd86a5, type: 3}
-    cooldown: 0.25
+    cooldown: 0.5
     animationOnTruck: {fileID: 0}
     currentCooldown: 0
     activable: {fileID: 0}
   - obj: {fileID: 102684307134982122, guid: 03a4a61157e0c5244b31f952ccf4308f, type: 3}
-    cooldown: 1
+    cooldown: 2
     animationOnTruck: {fileID: 0}
     currentCooldown: 0
     activable: {fileID: 0}
   - obj: {fileID: 6509547494615708847, guid: d52479fbf55a97c4d8f4c2556a09cbe5, type: 3}
-    cooldown: 1
+    cooldown: 2
     animationOnTruck: {fileID: 8640891979553255929}
     currentCooldown: 0
     activable: {fileID: 0}

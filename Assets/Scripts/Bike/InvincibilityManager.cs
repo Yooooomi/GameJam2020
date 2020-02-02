@@ -5,7 +5,6 @@ using UnityEngine;
 public class InvincibilityManager : MonoBehaviour
 {
     private Stats stats;
-    private Collider2D coll;
 
     public SpriteRenderer render;
 
@@ -23,7 +22,6 @@ public class InvincibilityManager : MonoBehaviour
         {
             initialColor = render.color;
         }
-        coll = GetComponent<Collider2D>();
         stats = GetComponent<Stats>();
         stats.onDamages.AddListener(this.OnDamages);
     }
@@ -44,8 +42,9 @@ public class InvincibilityManager : MonoBehaviour
     }
 
 
-    private void OnDamages()
+    private void OnDamages(float damages, bool notTrigger)
     {
+        if (notTrigger) return;
         UpdateInvincibility(true);
         currentInvincible = 0;
         currentBlink = 0;
@@ -53,7 +52,7 @@ public class InvincibilityManager : MonoBehaviour
 
     private void UpdateInvincibility(bool status)
     {
-        coll.isTrigger = status;
+        stats.ignoreCollision = status;
         stats.ignoreDamage = status;
     }
 
