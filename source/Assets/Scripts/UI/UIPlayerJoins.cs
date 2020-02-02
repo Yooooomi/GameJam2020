@@ -25,14 +25,12 @@ public class UIPlayerJoins : MonoBehaviour
         if (connects)
         {
             nbPlayers += 1;
-            connections[index].image.sprite = type == Inputs.ControllerType.CONTROLLER ? controller : keyboard;
-            connections[index].text.text = "Connected!";
+            connections[index].connect(type);
         }
         else
         {
             nbPlayers -= 1;
-            connections[index].image.sprite = notConnected;
-            connections[index].text.text = "Not connected!";
+            connections[index].disconnect();
         }
         waiting.SetActive(nbPlayers != 2);
         start.SetActive(nbPlayers == 2);
