@@ -217,7 +217,7 @@ MonoBehaviour:
   moveX: 1
   moveY: 0
   input: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 2392895576531090122}
 --- !u!114 &4616153828953076664
 MonoBehaviour:
   m_ObjectHideFlags: 0
