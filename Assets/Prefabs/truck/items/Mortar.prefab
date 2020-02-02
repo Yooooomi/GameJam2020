@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6509547494390663872}
   - component: {fileID: 6509547494390663875}
   - component: {fileID: 6509547494390663886}
+  - component: {fileID: 2750577681896416233}
   m_Layer: 0
   m_Name: shadow
   m_TagString: Untagged
@@ -118,6 +119,20 @@ MonoBehaviour:
   explosionRadius: 2
   explosion: {fileID: 6752952237466555920, guid: b5b4c3fcfee9baf4582a353b6a749cdd,
     type: 3}
+--- !u!114 &2750577681896416233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509547494390663874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e1ca8d056c6ead4eaec87727750ba77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay: {fileID: 8300000, guid: 91f8721f898ee474a875b8a52fc462c4, type: 3}
+  playOnDestroy: 1
 --- !u!1 &6509547494615708847
 GameObject:
   m_ObjectHideFlags: 0

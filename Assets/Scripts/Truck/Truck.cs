@@ -17,9 +17,9 @@ public class Truck : MonoBehaviour
     public List<string> keys;
     public List<TruckItem> items;
     public GameObject itemContainer;
-
-    private BoxCollider2D truckCollider;
+    
     private Movement movement;
+    private float cdrReduction = 0;
 
     void Start()
     {
@@ -29,7 +29,6 @@ public class Truck : MonoBehaviour
         }
 
         movement = GetComponent<Movement>();
-        truckCollider = GetComponent<BoxCollider2D>();    
     }
 
     void activeItem(TruckItem item)
@@ -58,7 +57,7 @@ public class Truck : MonoBehaviour
 
         foreach (TruckItem item in items)
         {
-            item.currentCooldown -= Time.deltaTime;
+            item.currentCooldown -= Time.deltaTime * (1 + cdrReduction);
         }
 
         if (movement.input == null) return;
@@ -79,5 +78,10 @@ public class Truck : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetCdrReduction(float reduction)
+    {
+        cdrReduction = reduction / 100;
     }
 }

@@ -7,9 +7,11 @@ public class chair : MonoBehaviour
     public float damage = 20.0f;
     private bool hasDamaged; 
 
+    private SoundPlayer player;
     private GlobalStats gameStats;
     private void Start()
     {
+        player = GetComponent<SoundPlayer>();
         gameStats = GameObject.FindObjectOfType<GlobalStats>();
     }
 
@@ -34,8 +36,8 @@ public class chair : MonoBehaviour
             {
                 stats.DoDamage(damage);
                 hasDamaged = true;
+                player.Play();
             }
-
             //Vector3 force = (transform.position - collision.gameObject.transform.position).normalized;
             //force *= -1;
             //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(force * 5000);

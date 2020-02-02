@@ -7,9 +7,11 @@ public class spike : MonoBehaviour
     public float pikeSlowRatio = 0.5f;
     public float damagePerSec = 20.0f;
     private GlobalStats stats;
-
+    private SoundPlayer player;
+    
     void Start()
     {
+        player = GetComponent<SoundPlayer>();
         stats = FindObjectOfType<GlobalStats>();
     }
 
@@ -23,6 +25,7 @@ public class spike : MonoBehaviour
         Stats stats = collision.gameObject.GetComponent<Stats>();
         if (stats != null)
         {
+            player.Play();
             stats.moveSpeed *= pikeSlowRatio;
         }
     }
