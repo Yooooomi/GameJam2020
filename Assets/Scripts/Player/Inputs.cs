@@ -59,9 +59,14 @@ public class Inputs : MonoBehaviour
         return Input.GetAxis(name + this.getSuffix());
     }
 
-    public bool GetButton(string name, ButtonType pressType = ButtonType.DOWN)
+    public bool GetButton(string name, ButtonType pressType = ButtonType.DOWN, bool useSuffix = true)
     {
-        string realName = name + this.getSuffix();
+        string realName = name;
+
+        if (useSuffix)
+        {
+            realName += this.getSuffix();
+        }
 
         if (pressType == ButtonType.DOWN) return Input.GetButtonDown(realName);
         if (pressType == ButtonType.PRESSED) return Input.GetButton(realName);
