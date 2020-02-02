@@ -9,11 +9,13 @@ public class RoleManager : MonoBehaviour
     private Inputs input;
 
     private Movement currentVehicle;
+    private PlayerStats stats;
 
     public void Research()
     {
         GameObject truckObject = GameObject.Find("Truck");
         GameObject bikeObject = GameObject.Find("Bike");
+        stats = GetComponent<PlayerStats>();
 
         if (truckObject == null || bikeObject == null)
         {
@@ -43,6 +45,7 @@ public class RoleManager : MonoBehaviour
     public void SetInTruck()
     {
         currentVehicle = truck;
+        truck.GetComponent<Truck>().SetCdrReduction(stats.truckCooldownReduction);
         truck.SetInput(input);
         transform.position = truck.transform.position;
         truck.transform.SetParent(transform);

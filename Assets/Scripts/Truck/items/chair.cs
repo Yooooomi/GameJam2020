@@ -6,9 +6,11 @@ public class chair : MonoBehaviour
 {
     public float damage = 20.0f;
 
+    private SoundPlayer player;
     private GlobalStats gameStats;
     private void Start()
     {
+        player = GetComponent<SoundPlayer>();
         gameStats = GameObject.FindObjectOfType<GlobalStats>();
     }
 
@@ -24,6 +26,7 @@ public class chair : MonoBehaviour
         if (stats != null && !stats.ignoreCollision)
         {
             stats.DoDamage(damage);
+            player.Play();
 
             //Vector3 force = (transform.position - collision.gameObject.transform.position).normalized;
             //force *= -1;

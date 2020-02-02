@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6249405505413649412}
   - component: {fileID: 6249405505413649413}
   - component: {fileID: 8817262692777592840}
+  - component: {fileID: 929447977380919062}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Untagged
@@ -73,6 +74,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pikeSlowRatio: 0.25
   damagePerSec: 20
+--- !u!114 &929447977380919062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6249405505413649411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e1ca8d056c6ead4eaec87727750ba77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay: {fileID: 8300000, guid: a86b023cac090e049974da133e0b1906, type: 3}
+  playOnDestroy: 0
 --- !u!1 &6249405506135375947
 GameObject:
   m_ObjectHideFlags: 0

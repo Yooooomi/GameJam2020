@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 8400666321311469189}
   - component: {fileID: 8400666321311469188}
   - component: {fileID: 8400666321311469186}
+  - component: {fileID: 487803272376471546}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -153,3 +154,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+--- !u!114 &487803272376471546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8400666321311469191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e1ca8d056c6ead4eaec87727750ba77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay: {fileID: 8300000, guid: b8485104990491041980f6341e2a83a3, type: 3}
+  playOnDestroy: 0
