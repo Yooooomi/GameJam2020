@@ -910,7 +910,6 @@ GameObject:
   - component: {fileID: 1621426249}
   - component: {fileID: 1621426248}
   - component: {fileID: 1621426247}
-  - component: {fileID: 1621426250}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -930,8 +929,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal_K_0
-  m_VerticalAxis: Vertical_K_0
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -966,18 +965,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1621426250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621426246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9b347b8cf29b3f4f819327cddd89888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1856941961
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,7 +976,6 @@ GameObject:
   - component: {fileID: 1856941964}
   - component: {fileID: 1856941963}
   - component: {fileID: 1856941962}
-  - component: {fileID: 1856941965}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1062,18 +1048,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1856941965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856941961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9b347b8cf29b3f4f819327cddd89888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1885218328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1138,94 +1112,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
         type: 3}
-      propertyPath: onPlayerJoins.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: colors.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: onPlayerJoins.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: onPlayerJoins.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
       propertyPath: onPlayerJoins.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1601041332}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: onPlayerJoins.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPlayerJoins
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: onPlayerJoins.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: colors.Array.data[0].r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: colors.Array.data[0].g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: colors.Array.data[0].b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: colors.Array.data[1].r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: colors.Array.data[1].g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: colors.Array.data[1].b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: colors.Array.data[0].a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: colors.Array.data[1].a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: gameScene
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: newPlayerSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 384671bdb3944174899b80e0d6b83626, type: 3}
-    - target: {fileID: 5711907342098490130, guid: 307b2959cacd8a343ba49769e7959fee,
-        type: 3}
-      propertyPath: removePlayerSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 384671bdb3944174899b80e0d6b83626, type: 3}
     - target: {fileID: 5711907342098490131, guid: 307b2959cacd8a343ba49769e7959fee,
         type: 3}
       propertyPath: m_Name

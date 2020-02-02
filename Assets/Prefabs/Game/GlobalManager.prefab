@@ -73,11 +73,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6040523af7d82c5418ea192e2fa57243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newPlayerSound: {fileID: 8300000, guid: 384671bdb3944174899b80e0d6b83626, type: 3}
+  removePlayerSound: {fileID: 8300000, guid: 384671bdb3944174899b80e0d6b83626, type: 3}
+  colors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  gameScene: 1
   prefab: {fileID: 1645581493698226761, guid: cddf48825e0952647877bcc8d5f022e0, type: 3}
-  thingsToRemoveAtStart:
-  - {fileID: 0}
-  thingsToEnableAtStart:
-  - {fileID: 0}
+  onPlayerJoins:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: OnPlayerJoins
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1885218330
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,6 +34,11 @@ public class Joiner : MonoBehaviour
         assigner.OnPlayerEvent.AddListener(this.OnPlayer);
     }
 
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= InitGame;
+    }
+
     public void StartTheGame()
     {
         if (!started && nbPlayers != 2)

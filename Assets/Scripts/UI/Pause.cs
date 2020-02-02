@@ -1,20 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class Pause : MonoBehaviour
 {
     public GameObject body;
-    private Inputs[] inputs;
+    public Button defaultButton;
+    private EventSystem eventSystem;
     bool active = false;
     float oldTimeScale = 1.0f;
 
     private void Start()
     {
+        eventSystem = FindObjectOfType<EventSystem>();
         body.SetActive(false);
-        inputs = FindObjectsOfType<Inputs>();
-        Debug.Log("Number of inputs: " + inputs.Length);
     }
 
     private void setActive(bool state)
@@ -24,7 +26,10 @@ public class Pause : MonoBehaviour
         {
             oldTimeScale = Time.timeScale;
             Time.timeScale = 0.0f;
-        } else
+            eventSystem.SetSelectedGameObject(null);
+            eventSystem.SetSelectedGameObject(defaultButton.gameObject);
+        }
+        else
         {
             Time.timeScale = oldTimeScale;
         }
@@ -43,17 +48,15 @@ public class Pause : MonoBehaviour
 
     public void backToMenu()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }
 
     private void Update()
     {
-        foreach (Inputs input in inputs)
+        if (Inputs.GetButton("Start", Inputs.ButtonType.DOWN))
         {
-            if (input.GetButton("Start", Inputs.ButtonType.DOWN, false))
-            {
-                setActive(!active);
-            }
+            setActive(!active);
         }
     }
 }
