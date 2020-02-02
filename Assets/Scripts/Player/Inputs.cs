@@ -59,13 +59,26 @@ public class Inputs : MonoBehaviour
         return Input.GetAxis(name + this.getSuffix());
     }
 
-    public bool GetButton(string name, ButtonType pressType = ButtonType.DOWN)
+    public bool GetButton(string name, ButtonType pressType = ButtonType.DOWN, bool useSuffix = true)
     {
-        string realName = name + this.getSuffix();
+        string realName = name;
+
+        if (useSuffix)
+        {
+            realName += this.getSuffix();
+        }
 
         if (pressType == ButtonType.DOWN) return Input.GetButtonDown(realName);
         if (pressType == ButtonType.PRESSED) return Input.GetButton(realName);
         if (pressType == ButtonType.UP) return Input.GetButtonUp(realName);
         return Input.GetButton(realName);
+    }
+
+    public static bool GetButton(string name, ButtonType pressType = ButtonType.DOWN)
+    {
+        if (pressType == ButtonType.DOWN) return Input.GetButtonDown(name);
+        if (pressType == ButtonType.PRESSED) return Input.GetButton(name);
+        if (pressType == ButtonType.UP) return Input.GetButtonUp(name);
+        return Input.GetButton(name);
     }
 }
